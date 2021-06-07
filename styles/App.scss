@@ -1,0 +1,53 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background-color: $gray-900;
+  color: $orange-500;
+}
+
+.btn-primary,
+.btn-primary:focus {
+  background-color: $gray-900;
+  color: $orange-500;
+  border-color: $orange-500;
+  border-width: 3px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus:hover {
+  background-color: $gray-800;
+  color: $orange-500;
+  border-color: $orange-500;
+}
+
+.btn-active {
+  background-color: $orange-400 !important;
+  color: $black !important;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: $gray-700;
+  height: 10px;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: $orange-500;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid $gray-900;
+  }
+  &.slider::-moz-range-progress,
+  &.slider::-webkit-progress-value {
+    background-color: $orange-500;
+    height: 10px;
+    border-radius: 5px;
+  }
+}
