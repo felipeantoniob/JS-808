@@ -6,7 +6,7 @@ import Pad from '../components/Pad'
 import { Howler } from 'howler'
 
 export default function Home() {
-  const [volume, setVolume] = useState(1)
+  const [volume, setVolume] = useState(0.5)
 
   useEffect(() => {
     Howler.volume(volume)

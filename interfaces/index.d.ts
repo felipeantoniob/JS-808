@@ -1,4 +1,4 @@
-export type clipProps = {
+type clipProps = {
   clip: {
     keyCode: number
     code: string
