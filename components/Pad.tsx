@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Howl } from 'howler'
 import { clipProps } from '../interfaces/index'
 import { Col, Button } from 'react-bootstrap'
@@ -6,20 +6,7 @@ import { Col, Button } from 'react-bootstrap'
 const Pad = ({ clip }: clipProps): JSX.Element => {
   const [active, setActive] = useState(false)
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown)
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.code === clip.code) {
-      playSound()
-    }
-  }
-
-  const playSound = () => {
+  const playSound = useCallback((): void => {
     const sample = document.getElementById(clip.keyTrigger) as HTMLAudioElement
 
     setActive(true)
@@ -28,10 +15,20 @@ const Pad = ({ clip }: clipProps): JSX.Element => {
       src: [sample.src],
     })
     sound.play()
-    // console.log(sample)
-    // console.log(clip)
-    // console.log(sound._src);
-  }
+  }, [clip.keyTrigger])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
+      if (e.code === clip.code) {
+        playSound()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [clip.code, playSound])
 
   return (
     <Col className="d-grid gap-2">

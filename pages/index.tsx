@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { Container, Row } from 'react-bootstrap'
-import { audioClips } from '../utils/audioClips'
-import Pad from '../components/Pad'
 import { Howler } from 'howler'
 
-export default function Home() {
+import { audioClips } from '../utils/audioClips'
+import Pad from '../components/Pad'
+
+export default function Home(): JSX.Element {
   const [volume, setVolume] = useState(0.5)
 
   useEffect(() => {
