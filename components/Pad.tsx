@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Howl } from 'howler'
-import { clipProps } from '../interfaces/index'
-import { Col, Button } from 'react-bootstrap'
+import { Button, Col } from 'react-bootstrap'
 
-const Pad = ({ clip }: clipProps): JSX.Element => {
+import { ClipProps } from '../interfaces/index'
+
+const Pad = ({ ...clip }: ClipProps): JSX.Element => {
   const [active, setActive] = useState(false)
 
   const playSound = useCallback((): void => {
@@ -13,6 +14,7 @@ const Pad = ({ clip }: clipProps): JSX.Element => {
     setTimeout(() => setActive(false), 200)
     const sound = new Howl({
       src: [sample.src],
+      preload: true,
     })
     sound.play()
   }, [clip.keyTrigger])
@@ -31,7 +33,7 @@ const Pad = ({ clip }: clipProps): JSX.Element => {
   }, [clip.code, playSound])
 
   return (
-    <Col className="d-grid gap-2">
+    <Col className="d-grid gap-2" data-cy={clip.code}>
       <Button
         variant="primary"
         onClick={playSound}
