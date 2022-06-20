@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 
-import '../styles/App.css'
+import '../styles/App.scss'
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return <Component {...pageProps} />
