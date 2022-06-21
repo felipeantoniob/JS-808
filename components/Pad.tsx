@@ -22,6 +22,7 @@ const Pad = ({ ...clip }: ClipProps): JSX.Element => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent): void => {
       if (e.code === clip.code) {
+        if (e.repeat) return
         playSound()
       }
     }
