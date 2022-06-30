@@ -16,8 +16,8 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Drum Machine</title>
-        <meta name="description" content="Drum machine" />
+        <title>JS-808</title>
+        <meta name="description" content="Interactive drum machine website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
         <Container>
           <Row>
             <h1 className="py-5 fw-bold" data-cy="title">
-              DRUM MACHINE
+              JS-808
             </h1>
           </Row>
           <Row
