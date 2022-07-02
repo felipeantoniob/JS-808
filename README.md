@@ -139,7 +139,7 @@ Project Link: [https://github.com/felipeantoniob/JS-808](https://github.com/feli
 [stars-url]: https://github.com/felipeantoniob/JS-808/stargazers
 [issues-shield]: https://img.shields.io/github/issues/felipeantoniob/JS-808.svg?style=for-the-badge
 [issues-url]: https://github.com/felipeantoniob/JS-808/issues
-[license-shield]: https://img.shields.io/github/license/felipeantoniob/JS-808.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/felipeantoniob/JS-808?style=for-the-badge
 [license-url]: https://github.com/felipeantoniob/JS-808/blob/master/LICENSE.txt
 [github-repo-size-shield]: https://img.shields.io/github/repo-size/felipeantoniob/JS-808?style=for-the-badge
 [last-commit-badge]: https://img.shields.io/github/last-commit/felipeantoniob/JS-808?style=for-the-badge
