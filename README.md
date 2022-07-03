@@ -37,7 +37,7 @@
 
 ## About The Project
 
-[![JS-808 Screenshot][website-screenshot]](https://example.com)
+[![JS-808 Screenshot][website-screenshot]](https://js-808.vercel.app)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -67,7 +67,7 @@
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/felipeantoniob/JS-808.git
    ```
 2. Install packages
 
