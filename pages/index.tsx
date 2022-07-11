@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Howler } from 'howler'
@@ -9,10 +9,6 @@ import { audioClips } from '../utils/audioClips'
 export default function Home(): JSX.Element {
   const [volume, setVolume] = useState(0.5)
 
-  useEffect(() => {
-    Howler.volume(volume)
-  }, [volume])
-
   return (
     <>
       <Head>
@@ -21,7 +17,7 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="App vh-100 text-center">
+      <main className="App min-vh-100 text-center">
         <Container>
           <Row>
             <h1 className="py-5 fw-bold" data-cy="title">
@@ -44,17 +40,22 @@ export default function Home(): JSX.Element {
             <Row>
               <h2 className="pb-3">Volume</h2>
             </Row>
-            <input
-              type="range"
-              step="0.01"
-              min="0"
-              max="1"
-              onChange={(e) => {
-                setVolume(parseFloat(e.target.value))
-              }}
-              value={volume}
-              className="w-50 slider"
-            />
+            <Row className="justify-content-center">
+              <Col xs={12} lg={6}>
+                <input
+                  type="range"
+                  step="0.01"
+                  min="0"
+                  max="1"
+                  onChange={(e) => {
+                    setVolume(parseFloat(e.target.value))
+                    Howler.volume(parseFloat(e.target.value))
+                  }}
+                  value={volume}
+                  className="w-100 slider"
+                />
+              </Col>
+            </Row>
           </div>
         </Container>
       </main>

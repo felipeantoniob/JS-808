@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Howl } from 'howler'
 import { Button, Col } from 'react-bootstrap'
+import { Howl } from 'howler'
 
 import { ClipProps } from '../interfaces/index'
 
@@ -9,14 +9,14 @@ const Pad = ({ ...clip }: ClipProps): JSX.Element => {
 
   const playSound = useCallback((): void => {
     const sample = document.getElementById(clip.keyTrigger) as HTMLAudioElement
-
-    setActive(true)
-    setTimeout(() => setActive(false), 200)
     const sound = new Howl({
       src: [sample.src],
       preload: true,
     })
     sound.play()
+
+    setActive(true)
+    setTimeout(() => setActive(false), 200)
   }, [clip.keyTrigger])
 
   useEffect(() => {
@@ -26,7 +26,6 @@ const Pad = ({ ...clip }: ClipProps): JSX.Element => {
         playSound()
       }
     }
-
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
